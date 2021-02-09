@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  CssBaseline,
+  Grid,
+  makeStyles,
+  ThemeProvider,
+} from "@material-ui/core";
+import NavigationDrawer from "./components/NavigationDrawer";
+import Home from "./pages/Home";
+import { darkTheme } from "./theme/themeDark";
 
-function App() {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    height: "100vh",
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+  },
+  content: {
+    flexGrow: 1,
+    maxWidth: "calc(100vw - 240px)",
+    background: "black",
+    height: "100vh",
+  },
+  drawer: {
+    width: "240px",
+    height: "100vh",
+    background: "blue",
+  },
+}));
+
+const App = () => {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Grid container className={classes.root}>
+        <NavigationDrawer />
+        <div className={classes.content}>
+          <Home />
+        </div>
+      </Grid>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
