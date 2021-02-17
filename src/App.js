@@ -5,6 +5,8 @@ import {
   ThemeProvider,
 } from "@material-ui/core";
 import NavigationDrawer from "./components/NavigationDrawer";
+import SearchBar from "./components/SearchBar";
+import TopBar from "./components/TopBar";
 import Home from "./pages/Home";
 import { darkTheme } from "./theme/themeDark";
 
@@ -36,6 +38,8 @@ const App = () => {
       <Grid container className={classes.root}>
         <NavigationDrawer />
         <div className={classes.content}>
+          <TopBar />
+          <div style={{ marginTop: "80px" }} />
           <Home />
         </div>
       </Grid>
