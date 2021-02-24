@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     maxWidth: "calc(100vw - 240px)",
-    background: "black",
     height: "100vh",
   },
   drawer: {
@@ -41,6 +40,7 @@ const App = () => {
           <TopBar />
           <div style={{ marginTop: "80px" }} />
           <Home />
+          <Player />
         </div>
       </Grid>
     </ThemeProvider>

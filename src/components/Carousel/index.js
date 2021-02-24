@@ -1,14 +1,17 @@
 import { Divider, Grid, makeStyles, Typography } from "@material-ui/core";
+import Song from "../Song";
+import Artist from "../Artist";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: "16px 22px",
+    marginLeft: "22px",
+    padding: "16px 22px 16px 0",
     overflow: "hidden",
   },
   carouselContainer: {
     display: "flex",
     overflow: "scroll",
-    height: "350px",
+    minHeight: "350px",
     scrollbarWidth: "none",
     "&::-webkit-scrollbar": {
       display: "none",
@@ -20,7 +23,7 @@ const Carousel = (props) => {
   const classes = useStyles();
 
   return (
-    <div className="root">
+    <div className={classes.root}>
       <Grid item xs={12}>
         <Typography variant="h6">{props.title}</Typography>
       </Grid>
