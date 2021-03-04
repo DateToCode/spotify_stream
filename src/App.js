@@ -5,8 +5,10 @@ import {
   ThemeProvider,
 } from "@material-ui/core";
 import NavigationDrawer from "./components/NavigationDrawer";
+import Player from "./components/Player";
 import SearchBar from "./components/SearchBar";
 import TopBar from "./components/TopBar";
+import { UserProvider } from "./context/UserContext";
 import Home from "./pages/Home";
 import { darkTheme } from "./theme/themeDark";
 
@@ -34,15 +36,17 @@ const App = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Grid container className={classes.root}>
-        <NavigationDrawer />
-        <div className={classes.content}>
-          <TopBar />
-          <div style={{ marginTop: "80px" }} />
-          <Home />
-          <Player />
-        </div>
-      </Grid>
+      <UserProvider>
+        <Grid container className={classes.root}>
+          <NavigationDrawer />
+          <div className={classes.content}>
+            <TopBar />
+            <div style={{ marginTop: "80px" }} />
+            <Home />
+            <Player />
+          </div>
+        </Grid>
+      </UserProvider>
     </ThemeProvider>
   );
 };
